@@ -12,17 +12,17 @@ function Terms() {
         <header>
           <a href="#/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'inherit', textDecoration: 'none', fontWeight: 700, fontSize: '1.5rem' }}>
             <UtensilsCrossed className="logo-icon" size={28} style={{ color: 'var(--primary)' }} />
-            <span className="logo-text">Reel<span className="logo-highlight">ish</span></span>
+            <span className="logo-text">fuud<span className="logo-highlight">r</span></span>
           </a>
         </header>
         <div style={{ display: 'flex', gap: '4rem', marginTop: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: '300px' }}>
             <h1 className="title" style={{ fontSize: '3rem', marginBottom: '2rem' }}>Terms of Service</h1>
             <div style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-              <p>Welcome to Reelish. By using our platform, you agree to the following terms and conditions.</p>
+              <p>Welcome to fuudr. By using our platform, you agree to the following terms and conditions.</p>
               <br/>
               <h3 style={{ color: 'var(--text-main)', marginBottom: '0.5rem' }}>1. Usage Rights</h3>
-              <p>You agree to use this application for lawful purposes only and respect all content guidelines. Reelish grants you a limited, non-exclusive license to use the platform.</p>
+              <p>You agree to use this application for lawful purposes only and respect all content guidelines. fuudr grants you a limited, non-exclusive license to use the platform.</p>
               <br/>
               <h3 style={{ color: 'var(--text-main)', marginBottom: '0.5rem' }}>2. Privacy</h3>
               <p>Your privacy is important to us. Please refer to our Privacy Policy for more information on how we handle your data and safeguard your information.</p>

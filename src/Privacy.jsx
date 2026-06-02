@@ -12,14 +12,14 @@ function Privacy() {
         <header>
           <a href="#/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'inherit', textDecoration: 'none', fontWeight: 700, fontSize: '1.5rem' }}>
             <UtensilsCrossed className="logo-icon" size={28} style={{ color: 'var(--primary)' }} />
-            <span className="logo-text">Reel<span className="logo-highlight">ish</span></span>
+            <span className="logo-text">fuud<span className="logo-highlight">r</span></span>
           </a>
         </header>
         <div style={{ display: 'flex', gap: '4rem', marginTop: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: '300px' }}>
             <h1 className="title" style={{ fontSize: '3rem', marginBottom: '2rem' }}>Privacy Policy</h1>
             <div style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-              <p>At Reelish, we take your privacy seriously. This policy describes how we collect, use, and protect your data.</p>
+              <p>At fuudr, we take your privacy seriously. This policy describes how we collect, use, and protect your data.</p>
               <br/>
               <h3 style={{ color: 'var(--text-main)', marginBottom: '0.5rem' }}>1. Data Collection</h3>
               <p>We only collect the information necessary to provide you with the best short-form food video experience, such as your email address when joining the waitlist or your location for food delivery.</p>

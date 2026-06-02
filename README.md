@@ -1,13 +1,13 @@
 <div align="center">
-  <img src="public/favicon.svg" alt="Reelish Logo" width="80" />
-  <h1>Reelish Web Application</h1>
+  <img src="public/favicon.svg" alt="fuudr Logo" width="80" />
+  <h1>fuudr Web Application</h1>
   <p>Discover meals through short-form videos. Swipe, watch, order.</p>
 </div>
 
 <br/>
 
 ## Overview
-Reelish is a modern, mobile-first web application designed to bridge the gap between food discovery and ordering. It features a responsive layout with a robust waitlist capture system and client-side routing.
+fuudr is a modern, mobile-first web application designed to bridge the gap between food discovery and ordering. It features a responsive layout with a robust waitlist capture system and client-side routing.
 
 ## Features
 - **Mobile-First Feed UI:** An interactive, vertical-scrolling video feed interface tailored for food discovery.
