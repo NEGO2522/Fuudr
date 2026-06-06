@@ -87,8 +87,9 @@ function PhoneCard({ rotate = '0deg', bobClass = 'bobbing-1', revealDelay = '0ms
       const elapsed  = Date.now() - segStartRef.current;
       const next     = Math.min((elapsed / duration) * 100, 100);
 
-      // Show hand at 75% of seg 1 (wall-clock accurate)
-      if (segRef.current === 1 && next >= 75 && !showSwipeRef.current) {
+      // Show hand at 75% of seg 1 for burgers, 55% for pizza2
+      const swipeTrigger = setIdxRef.current === 0 ? 65 : 75;
+      if (segRef.current === 1 && next >= swipeTrigger && !showSwipeRef.current) {
         showSwipeRef.current = true;
         setSwipeKey(k => k + 1);
         setShowSwipe(true);
