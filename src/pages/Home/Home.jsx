@@ -154,6 +154,14 @@ export function Home() {
         }
       );
 
+      // 6. Hide Navbar Logo on Footer
+      ScrollTrigger.create({
+        trigger: '.slice-footer',
+        start: 'top 150px',
+        onEnter: () => gsap.to('.brand-logo', { autoAlpha: 0, scale: 0.8, duration: 0.3 }),
+        onLeaveBack: () => gsap.to('.brand-logo', { autoAlpha: 1, scale: 1, duration: 0.3 })
+      });
+
     });
 
     return () => {

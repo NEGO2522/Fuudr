@@ -58,15 +58,32 @@
   background: #fff;
 }
 
+.mobile-menu-btn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .brutal-nav {
     padding: 16px 20px;
   }
-  .nav-group.l {
+  .nav-group.l,
+  .nav-group.r {
     display: none;
   }
-  .brand-logo .xl {
-    font-size: 32px;
-    padding: 6px 12px;
+  .mobile-menu-btn {
+    display: block;
+  }
+  .brand-logo {
+    text-align: left;
+    margin-right: auto;
+  }
+  .logo-circle {
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 0 6px #331C11;
+    margin: 0;
+  }
+  .logo-text {
+    font-size: 26px;
   }
 }
