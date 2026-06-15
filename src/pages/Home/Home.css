@@ -591,4 +591,43 @@
   .footer-marquee-text, .footer-marquee-text span {
     font-size: 24px !important;
   }
+
+  /* DISCOVERY MOBILE GRID */
+  .discovery-container {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 0 10px !important;
+  }
+  .discovery-text {
+    order: -1 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  .discovery-text h2 {
+    font-size: 28px !important;
+  }
+  .desktop-br {
+    display: none !important;
+  }
+  .discovery-group {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .discovery-card {
+    width: 100% !important;
+    height: 260px !important;
+  }
+  .discovery-actions {
+    flex-direction: column !important;
+    gap: 4px !important;
+    bottom: 8px !important;
+  }
+  .discovery-btn {
+    font-size: 11px !important;
+    padding: 4px 0 !important;
+    box-shadow: 1px 1px 0 #000 !important;
+  }
 }

@@ -439,16 +439,46 @@ export function Home() {
             {/* Card 1 */}
             <div className="discovery-card brutal-card" style={{ width: '240px', height: '340px', borderRadius: '16px', border: '4px solid #000', overflow: 'hidden', position: 'relative', background: '#ccc', boxShadow: '6px 6px 0 #000' }}>
               <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=400&q=80" alt="Video Placeholder 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="play-btn" style={{ position: 'absolute', top: '12px', right: '12px', width: '32px', height: '32px', background: '#fff', border: '3px solid #000', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#000" style={{ marginLeft: '2px' }}><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div style={{ position: 'absolute', bottom: '85px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', zIndex: 5 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>84</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>12k</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Share</span>
+                </div>
+              </div>
+              <div className="discovery-actions" style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', gap: '8px', zIndex: 5 }}>
+                <button className="discovery-btn" style={{ flex: 1, background: '#FCA311', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Add to Cart</button>
+                <button className="discovery-btn" style={{ flex: 1, background: '#fff', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Menu</button>
               </div>
             </div>
 
             {/* Card 2 */}
             <div className="discovery-card brutal-card" style={{ width: '240px', height: '340px', borderRadius: '16px', border: '4px solid #000', overflow: 'hidden', position: 'relative', background: '#ccc', boxShadow: '6px 6px 0 #000' }}>
               <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80" alt="Video Placeholder 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="play-btn" style={{ position: 'absolute', top: '12px', right: '12px', width: '32px', height: '32px', background: '#fff', border: '3px solid #000', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#000" style={{ marginLeft: '2px' }}><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div style={{ position: 'absolute', bottom: '85px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', zIndex: 5 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>120</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>8.4k</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Share</span>
+                </div>
+              </div>
+              <div className="discovery-actions" style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', gap: '8px', zIndex: 5 }}>
+                <button className="discovery-btn" style={{ flex: 1, background: '#FCA311', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Add to Cart</button>
+                <button className="discovery-btn" style={{ flex: 1, background: '#fff', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Menu</button>
               </div>
             </div>
           </div>
@@ -458,8 +488,8 @@ export function Home() {
             <div style={{ width: '40px', height: '40px', background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', borderRadius: '8px', border: '3px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', boxShadow: '3px 3px 0 #000' }}>
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
-            <h2 className="xl" style={{ color: '#3D2101', fontSize: 'clamp(28px, 3.5vw, 42px)', lineHeight: 1.2, textTransform: 'none' }}>
-              Follow the <br/> discovery <br/> @tryfuudr
+            <h2 className="xl discovery-heading" style={{ color: '#3D2101', fontSize: 'clamp(28px, 3.5vw, 42px)', lineHeight: 1.2, textTransform: 'none' }}>
+              Follow the <br className="desktop-br"/> discovery <br className="desktop-br"/> <span style={{ fontFamily: '"Brush Script MT", cursive', fontSize: '1.2em' }}>@tryfuudr</span>
             </h2>
           </a>
 
@@ -467,16 +497,46 @@ export function Home() {
             {/* Card 3 */}
             <div className="discovery-card brutal-card" style={{ width: '240px', height: '340px', borderRadius: '16px', border: '4px solid #000', overflow: 'hidden', position: 'relative', background: '#ccc', boxShadow: '6px 6px 0 #000' }}>
               <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Video Placeholder 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="play-btn" style={{ position: 'absolute', top: '12px', right: '12px', width: '32px', height: '32px', background: '#fff', border: '3px solid #000', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#000" style={{ marginLeft: '2px' }}><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div style={{ position: 'absolute', bottom: '85px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', zIndex: 5 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>310</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>24k</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Share</span>
+                </div>
+              </div>
+              <div className="discovery-actions" style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', gap: '8px', zIndex: 5 }}>
+                <button className="discovery-btn" style={{ flex: 1, background: '#FCA311', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Add to Cart</button>
+                <button className="discovery-btn" style={{ flex: 1, background: '#fff', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Menu</button>
               </div>
             </div>
 
             {/* Card 4 */}
             <div className="discovery-card brutal-card" style={{ width: '240px', height: '340px', borderRadius: '16px', border: '4px solid #000', overflow: 'hidden', position: 'relative', background: '#ccc', boxShadow: '6px 6px 0 #000' }}>
               <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Video Placeholder 4" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div className="play-btn" style={{ position: 'absolute', top: '12px', right: '12px', width: '32px', height: '32px', background: '#fff', border: '3px solid #000', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#000" style={{ marginLeft: '2px' }}><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div style={{ position: 'absolute', bottom: '85px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', zIndex: 5 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>67</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>9.2k</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }}><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                  <span style={{ color: '#fff', fontSize: '11px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Share</span>
+                </div>
+              </div>
+              <div className="discovery-actions" style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', gap: '8px', zIndex: 5 }}>
+                <button className="discovery-btn" style={{ flex: 1, background: '#FCA311', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Add to Cart</button>
+                <button className="discovery-btn" style={{ flex: 1, background: '#fff', color: '#000', border: '2px solid #000', padding: '6px 0', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer', boxShadow: '2px 2px 0 #000', fontFamily: 'var(--sans)' }}>Menu</button>
               </div>
             </div>
           </div>
