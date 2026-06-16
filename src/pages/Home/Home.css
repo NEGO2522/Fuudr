@@ -581,12 +581,15 @@
     display: none !important;
   }
   .slice-marquee div {
-    animation-duration: 25s !important;
+    animation-duration: 40s !important;
     font-size: 14px !important;
     gap: 16px !important;
   }
   .footer-marquee {
     padding-top: 30px !important;
+  }
+  .footer-marquee div {
+    animation-duration: 40s !important;
   }
   .footer-marquee-text, .footer-marquee-text span {
     font-size: 24px !important;

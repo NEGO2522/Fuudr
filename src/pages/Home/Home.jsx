@@ -45,8 +45,7 @@ export function Home() {
       lerp: 0.05,
       wheelMultiplier: 1,
       smoothWheel: true,
-      smoothTouch: true,
-      touchMultiplier: 2
+      smoothTouch: false
     });
     window.lenis = lenis;
     
