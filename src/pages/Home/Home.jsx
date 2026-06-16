@@ -277,7 +277,7 @@ export function Home() {
             Where Every Perfect<br/>Reel Tells a Story
           </h2>
           <p className="about-text" style={{ color: '#331C11', fontSize: 'clamp(13px, 3.5vw, 22px)', lineHeight: '1.6', fontWeight: 600, marginBottom: '40px', padding: '0 5px' }}>
-            Our ingredients are fresh, our ovens are hot, and our team is fired up to serve you the best pies in town. From classic Margheritas to loaded flavor bombs, every pizza is made with intention, fun, and a little pizza magic. We believe pizza is more than food, it's a celebration.
+            See real videos before you order, smart recommendations show you hidden gems near you. Order in a few taps and enjoy. Great food exists all around us, but most people never discover it through traditional apps.
           </p>
 
           <button className="brutal-btn" style={{ fontSize: '14px', padding: '6px 20px', borderRadius: '50px', margin: '0 auto', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px', background: '#fff', border: '2px solid #000', boxShadow: '-3px 3px 0 #000', cursor: 'pointer' }}>
@@ -315,7 +315,7 @@ export function Home() {
       <section className="slice-testimonials" style={{ position: 'relative', minHeight: '900px', background: 'var(--bg-light)', overflow: 'hidden', padding: '100px 0' }}>
         <div style={{ textAlign: 'center', position: 'relative', zIndex: 10, marginBottom: '60px' }}>
           <h2 className="xl" style={{ fontSize: 'clamp(32px, 5vw, 80px)', lineHeight: 1.1, color: '#3D2101', textShadow: '2px 2px 0 #fff', textTransform: 'none' }}>
-            Why people who<br/>order love fuudr?
+            Why people use<br/>fuudr?
           </h2>
         </div>
 
@@ -331,41 +331,48 @@ export function Home() {
           {/* Yellow Note */}
           <div className="sticky-note yellow" style={{ top: '5%', left: '10%', transform: 'rotate(-3deg)', zIndex: 3 }}>
             <div className="pin red" style={{ top: '15px', left: '15px' }}></div>
-            <p>Fuudr completely changed how I discover new places to eat. The UI is just so smooth and addictive!</p>
+            <p>Seeing real videos of the food makes deciding what to eat 10x easier.</p>
             <div className="sticky-author">@tryfuudr</div>
           </div>
 
           {/* Pink Note */}
           <div className="sticky-note pink" style={{ bottom: '10%', left: '15%', transform: 'rotate(2deg)', zIndex: 4 }}>
             <div className="tape" style={{ top: '-15px', left: '50%', width: '100px', height: '30px', transform: 'translateX(-50%) rotate(-2deg)', background: '#E2D9B8' }}></div>
-            <p>I used to spend 30 minutes just deciding where to order. Now I just scroll Fuudr, see it, and crave it!</p>
+            <p>Scrolling through aesthetic videos and ordering in just 3 taps is the ultimate flex.</p>
             <div className="sticky-author">@tryfuudr</div>
           </div>
 
           {/* Center Polaroid */}
-          <div className="polaroid-photo" style={{ top: '15%', left: '50%', transform: 'translateX(-50%) rotate(-5deg)', zIndex: 2, width: '320px' }}>
+          <div className="polaroid-photo" style={{ top: '15%', left: '50%', transform: 'translateX(-50%) rotate(-5deg)', zIndex: 2, width: '320px', position: 'relative' }}>
             <div className="tape" style={{ top: '-25px', left: '45%', width: '40px', height: '80px', transform: 'rotate(2deg)', background: '#CFCBAE' }}></div>
-            <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=600&q=80" alt="Friends eating pizza" style={{ height: '300px', objectFit: 'cover' }} />
+            <div style={{ position: 'relative', width: '100%', height: '300px', overflow: 'hidden' }}>
+              <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80" alt="Exotic Sushi Platter" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.3)' }}>
+                <span style={{ color: '#FCA311', fontSize: '72px', lineHeight: 0.8, fontFamily: '"Brush Script MT", cursive', textShadow: '3px 3px 0 #2B1600', transform: 'rotate(-5deg)' }}>
+                  fuudr
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Blue Note */}
           <div className="sticky-note blue" style={{ bottom: '15%', right: '35%', transform: 'rotate(-2deg)', zIndex: 5 }}>
             <div className="pin blue" style={{ top: '10px', left: '50%', transform: 'translateX(-50%)' }}></div>
-            <p>Finally an app built for foodies. The video discovery feed is exactly what the food delivery space needed.</p>
+            <p>Trust what you see. No fake photos, just honest food and real recommendations from the community.</p>
             <div className="sticky-author">@tryfuudr</div>
           </div>
 
           {/* Green Note */}
           <div className="sticky-note green" style={{ top: '10%', right: '12%', transform: 'rotate(4deg)', zIndex: 3 }}>
             <div className="tape" style={{ top: '-10px', right: '-10px', width: '90px', height: '25px', transform: 'rotate(15deg)', background: '#F4CFDF' }}></div>
-            <p>Love how easy it is to find hidden gems around my city. The community recommendations on Fuudr are top-notch.</p>
+            <p>Find those amazing hidden restaurants nearby that never show up on regular delivery apps.</p>
             <div className="sticky-author">@tryfuudr</div>
           </div>
 
           {/* Right Polaroid */}
           <div className="polaroid-photo" style={{ bottom: '0%', right: '8%', transform: 'rotate(6deg)', zIndex: 4, width: '280px' }}>
             <div className="pin red" style={{ top: '15px', left: '15px' }}></div>
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="People eating" style={{ height: '260px', objectFit: 'cover' }} />
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" alt="Gourmet Tacos" style={{ height: '260px', objectFit: 'cover' }} />
           </div>
           
         </div>
