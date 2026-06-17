@@ -604,15 +604,15 @@ export function Home() {
 
           <div className="footer-socials" style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '80px', flexWrap: 'wrap' }}>
             {[
-              { name: 'LinkedIn', color: '#0077b5', icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> },
-              { name: 'Instagram', gradient: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> }
+              { name: 'LinkedIn', color: '#0077b5', url: 'https://www.linkedin.com/company/tryfuudr/', icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> },
+              { name: 'Instagram', gradient: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', url: 'https://www.instagram.com/tryfuudr/', icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> }
             ].map(social => (
-              <button key={social.name} className="brutal-btn" style={{ background: '#4f2e09', color: '#fff', padding: '12px 24px', fontSize: '16px', borderRadius: '8px', border: '2px solid #5A3515', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
+              <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="brutal-btn" style={{ textDecoration: 'none', background: '#4f2e09', color: '#fff', padding: '12px 24px', fontSize: '16px', borderRadius: '8px', border: '2px solid #5A3515', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
                 <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px', background: social.gradient || social.color, borderRadius: '6px', color: '#fff' }}>
                   {social.icon}
                 </span>
                 <span style={{ fontWeight: '500' }}>{social.name}</span>
-              </button>
+              </a>
             ))}
           </div>
 
