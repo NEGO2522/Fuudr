@@ -63,6 +63,20 @@ const MenuManager = ({ user }) => {
     fetchCategories();
   }, [user.id]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (activeVideoItem) {
+          setActiveVideoItem(null);
+        } else if (isModalOpen) {
+          resetModal();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeVideoItem, isModalOpen]);
+
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({

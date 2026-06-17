@@ -285,7 +285,7 @@ export function Home() {
 
         <div className="about-header" style={{textAlign: 'center', position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 auto', padding: '0 20px'}}>
           <h2 className="xl about-title" style={{ fontSize: 'clamp(32px, 5vw, 80px)', lineHeight: 1.1, color: '#3D2101', textShadow: '2px 2px 0 #fff', textTransform: 'none', marginBottom: '24px' }}>
-            Where Every Perfect<br/>Reel Tells a Story
+            Order From Reels
           </h2>
           <p className="about-text" style={{ color: '#331C11', fontSize: 'clamp(13px, 3.5vw, 22px)', lineHeight: '1.6', fontWeight: 600, marginBottom: '40px', padding: '0 5px' }}>
             See real videos before you order, smart recommendations show you hidden gems near you. Order in a few taps and enjoy. Great food exists all around us, but most people never discover it through traditional apps.
