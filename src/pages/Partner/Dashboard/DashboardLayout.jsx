@@ -70,21 +70,26 @@ const DashboardLayout = () => {
           </button>
         </div>
 
-        <div className="p-6 flex flex-col items-center border-b border-slate-100">
-          {user.logo_url ? (
-            <img src={user.logo_url} alt="Logo" className="w-20 h-20 rounded-2xl object-cover shadow-sm mb-3" />
-          ) : (
-            <div className="w-20 h-20 rounded-2xl bg-orange-100 flex items-center justify-center mb-3">
-              <span className="text-2xl font-bold text-orange-600">
-                {user.restaurant_name.charAt(0)}
-              </span>
+        <div className="p-4 border-b border-slate-100">
+          <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:bg-slate-100 hover:shadow-sm">
+            {user.logo_url ? (
+              <img src={user.logo_url} alt="Logo" className="w-12 h-12 rounded-xl object-cover shadow-sm bg-white" />
+            ) : (
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-sm shadow-orange-500/20">
+                <span className="text-xl font-bold text-white">
+                  {user.restaurant_name.charAt(0)}
+                </span>
+              </div>
+            )}
+            <div className="overflow-hidden flex-1">
+              <h2 className="font-bold text-sm text-slate-900 truncate leading-tight">{user.restaurant_name}</h2>
+              <p className="text-xs text-slate-500 truncate mt-0.5">{user.owner_name}</p>
             </div>
-          )}
-          <h2 className="font-bold text-lg text-center leading-tight">{user.restaurant_name}</h2>
-          <p className="text-sm text-slate-500">{user.owner_name}</p>
+          </div>
         </div>
 
-        <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+        <nav className="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto">
+          <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 px-3">Main Menu</div>
           {navItems.map((item) => {
             const isActive = location.pathname === item.path || (item.path !== '/partner/dashboard' && location.pathname.startsWith(item.path));
             return (
@@ -92,25 +97,25 @@ const DashboardLayout = () => {
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all duration-300 group relative ${
                   isActive 
-                    ? 'bg-orange-50 text-orange-600' 
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                    ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20 translate-x-1' 
+                    : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 hover:translate-x-1'
                 }`}
               >
-                <item.icon size={20} className={isActive ? 'text-orange-500' : 'text-slate-400'} />
+                <item.icon size={20} className={`transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-orange-500'}`} />
                 {item.name}
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-4 border-t border-slate-100">
-          <button 
+        <div className="p-4 border-t border-slate-100 bg-slate-50/50">
+          <button
             onClick={handleLogout}
-            className="flex items-center gap-3 px-4 py-3 w-full rounded-xl font-medium text-red-600 hover:bg-red-50 transition-colors"
+            className="flex items-center gap-3 px-4 py-3 w-full rounded-xl font-bold text-slate-500 hover:bg-red-50 hover:text-red-600 transition-all duration-300 group"
           >
-            <LogOut size={20} className="text-red-500" />
+            <LogOut size={20} className="text-slate-400 group-hover:text-red-500 transition-colors duration-300" />
             Sign Out
           </button>
         </div>
