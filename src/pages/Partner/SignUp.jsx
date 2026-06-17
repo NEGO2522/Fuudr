@@ -14,6 +14,7 @@ import {
   EyeOff,
   MapPinned
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import AuthLayout from '../../components/Partner/AuthLayout';
 import { supabase } from '../../supabaseClient';
 
@@ -109,11 +110,17 @@ const SignUp = () => {
   };
 
   return (
-    <AuthLayout 
-      title="Partner With Us" 
-      subtitle="Join Fuudr and grow your business today"
-    >
-      <form onSubmit={handleSubmit} className="space-y-5">
+    <>
+      <Helmet>
+        <title>Register Restaurant | Fuudr Partner Program</title>
+        <meta name="description" content="Sign up your restaurant on Fuudr. List your dishes, upload food reels, and start receiving orders from local customers today." />
+        <link rel="canonical" href="https://fuudr.com/partner/signup" />
+      </Helmet>
+      <AuthLayout 
+        title="Partner With Us" 
+        subtitle="Join Fuudr and grow your business today"
+      >
+        <form onSubmit={handleSubmit} className="space-y-5">
         
         {errorMsg && (
           <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm font-medium border border-red-200">
@@ -332,7 +339,8 @@ const SignUp = () => {
           <Link to="/partner" className="text-orange-500 font-medium hover:text-orange-600 transition-colors">Sign In here</Link>
         </div>
       </form>
-    </AuthLayout>
+      </AuthLayout>
+    </>
   );
 };
 

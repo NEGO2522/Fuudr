@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 import { Navbar } from '../../components/Navbar/Navbar';
+import { Helmet } from 'react-helmet-async';
 import { waitlistSupabase as supabase } from '../../supabaseClient';
 import './Home.css';
 
@@ -210,6 +211,11 @@ export function Home() {
 
   return (
     <div className="slice-home">
+      <Helmet>
+        <title>Fuudr | See it. Crave it. Order it. — Food Reel App</title>
+        <meta name="description" content="Fuudr is a short-form food reel app. Watch video reels of dishes from restaurants near you and order instantly. Think TikTok meets Zomato." />
+        <link rel="canonical" href="https://fuudr.com/" />
+      </Helmet>
       <Navbar />
 
       {/* HERO SECTION */}

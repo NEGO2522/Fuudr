@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 import AuthLayout from '../../components/Partner/AuthLayout';
 import { supabase } from '../../supabaseClient';
@@ -68,11 +69,17 @@ const SignIn = () => {
   };
 
   return (
-    <AuthLayout 
-      title="Welcome Back" 
-      subtitle="Sign in to your partner dashboard to manage your business"
-    >
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <>
+      <Helmet>
+        <title>Fuudr Partner | Grow Your Restaurant Revenue with Food Reels</title>
+        <meta name="description" content="Join the Fuudr Partner Program. Reach more customers through video reels and get orders instantly. Log in to your restaurant dashboard." />
+        <link rel="canonical" href="https://fuudr.com/partner" />
+      </Helmet>
+      <AuthLayout 
+        title="Welcome Back" 
+        subtitle="Sign in to your partner dashboard to manage your business"
+      >
+        <form onSubmit={handleSubmit} className="space-y-6">
         
         {errorMsg && (
           <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm font-medium border border-red-200">
@@ -126,7 +133,8 @@ const SignIn = () => {
           <Link to="/partner/signup" className="text-orange-500 font-medium hover:text-orange-600 transition-colors">Register now</Link>
         </div>
       </form>
-    </AuthLayout>
+      </AuthLayout>
+    </>
   );
 };
 
