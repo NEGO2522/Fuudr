@@ -20,6 +20,7 @@ const Settings = ({ user }) => {
     address: '',
     latitude: null,
     longitude: null,
+    google_map_link: '',
     restaurant_type: '',
     provides_delivery: true,
     opening_time: '',
@@ -43,6 +44,7 @@ const Settings = ({ user }) => {
         address: user.address || '',
         latitude: user.latitude || null,
         longitude: user.longitude || null,
+        google_map_link: user.google_map_link || '',
         restaurant_type: user.restaurant_type || '',
         provides_delivery: user.provides_delivery ?? true,
         opening_time: user.opening_time || '',
@@ -263,14 +265,28 @@ const Settings = ({ user }) => {
                 <label className={labelClasses}>Physical Address</label>
                 <AddressAutocomplete
                   value={formData.address}
-                  onSelect={({ address, latitude, longitude }) => {
-                    setFormData(prev => ({ ...prev, address, latitude, longitude }));
+                  onSelect={({ address, latitude, longitude, googleMapLink }) => {
+                    setFormData(prev => ({ ...prev, address, latitude, longitude, google_map_link: googleMapLink }));
                   }}
                 />
                 {formData.latitude && formData.longitude && (
-                  <p className="mt-1.5 text-xs text-green-600 font-semibold flex items-center gap-1">
-                    <CheckCircle2 size={12} /> Location confirmed ({formData.latitude.toFixed(4)}, {formData.longitude.toFixed(4)})
-                  </p>
+                  <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold">
+                    <p className="text-green-600 flex items-center gap-1">
+                      <CheckCircle2 size={12} /> Location confirmed ({formData.latitude.toFixed(4)}, {formData.longitude.toFixed(4)})
+                    </p>
+                    {formData.google_map_link && (
+                      <p className="text-orange-600">
+                        <a 
+                          href={formData.google_map_link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="hover:text-orange-700 underline"
+                        >
+                          View on Google Maps
+                        </a>
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
