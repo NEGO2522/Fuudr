@@ -54,14 +54,14 @@ const Overview = ({ user }) => {
       bg: 'bg-orange-50' 
     },
     { 
-      title: 'Profile Rating', 
+      title: 'Google Rating', 
       value: stats.avgRating ? `${stats.avgRating} ★` : 'New', 
       icon: Star, 
       color: 'text-yellow-600', 
       bg: 'bg-yellow-50' 
     },
     { 
-      title: 'Total Reviews', 
+      title: 'Google Reviews', 
       value: stats.totalReviews, 
       icon: Star, 
       color: 'text-purple-600', 

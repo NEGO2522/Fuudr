@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 import { Navbar } from '../../components/Navbar/Navbar';
 import { Helmet } from 'react-helmet-async';
-import { waitlistSupabase as supabase } from '../../supabaseClient';
 import './Home.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,33 +22,6 @@ const galleryImages = [
 
 export function Home() {
   const marqueeRef = useRef(null);
-  
-  // Form States
-  const [formData, setFormData] = useState({ fullName: '', phone: '', email: '' });
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState(null);
-
-  const handleWaitlistSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage(null);
-
-    const { error } = await supabase
-      .from('waitlist')
-      .insert([
-        { full_name: formData.fullName, phone: formData.phone, email: formData.email }
-      ]);
-
-    if (error) {
-      console.error("Error saving to waitlist:", error.message);
-      setMessage({ type: 'error', text: 'Something went wrong. Please try again.' });
-    } else {
-      setMessage({ type: 'success', text: "You're on the list! We'll be in touch." });
-      setFormData({ fullName: '', phone: '', email: '' });
-    }
-    
-    setLoading(false);
-  };
 
   useEffect(() => {
     // Lenis Smooth Scroll setup
@@ -260,8 +232,8 @@ export function Home() {
             }}>+</span>
           </button>
 
-          <button className="brutal-btn" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} style={{ background: '#fff', color: '#000', fontSize: '18px', padding: '6px 24px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            Join Waitlist
+          <button className="brutal-btn" onClick={() => document.getElementById('partner-cta')?.scrollIntoView({ behavior: 'smooth' })} style={{ background: '#fff', color: '#000', fontSize: '18px', padding: '6px 24px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            Register Restaurant
             <span style={{
               background: '#FCA311', 
               color: '#000', 
@@ -403,8 +375,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* WAITLIST / BOOK */}
-      <section className="slice-waitlist" id="waitlist" style={{ position: 'relative', padding: '120px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', overflow: 'hidden' }}>
+      {/* PARTNER CTA SECTION */}
+      <section className="slice-waitlist" id="partner-cta" style={{ position: 'relative', padding: '120px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', overflow: 'hidden' }}>
         {/* BACKGROUND COLLAGE */}
         <div className="bg-collage" style={{ position: 'absolute', inset: 0, zIndex: 0, background: '#3b2207' }}>
           <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" style={{ position: 'absolute', top: '-10%', left: '-10%', width: '45vw', height: '60%', objectFit: 'cover', transform: 'rotate(-5deg)', border: '12px solid #3b2207' }} alt="" />
@@ -413,37 +385,27 @@ export function Home() {
           <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" style={{ position: 'absolute', bottom: '-15%', right: '-5%', width: '55vw', height: '65%', objectFit: 'cover', transform: 'rotate(-4deg)', border: '12px solid #3b2207' }} alt="" />
         </div>
 
-        <h2 className="xl" style={{ position: 'relative', zIndex: 10, color: '#FCA311', fontSize: 'clamp(48px, 6vw, 80px)', marginBottom: '40px', textTransform: 'none', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>Join The Waitlist</h2>
+        <h2 className="xl" style={{ position: 'relative', zIndex: 10, color: '#FCA311', fontSize: 'clamp(48px, 6vw, 80px)', marginBottom: '40px', textTransform: 'none', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>Grow Your Business</h2>
 
-        <div className="reservation-card" style={{ position: 'relative', zIndex: 10, background: '#F5F0E6', padding: '60px 40px', borderRadius: '16px', width: '100%', maxWidth: '500px', borderLeft: '8px solid #000', borderBottom: '8px solid #000', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}>
-          <form className="res-form" onSubmit={handleWaitlistSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-              <div style={{ flex: '1 1 250px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ fontSize: '14px', fontWeight: 600, color: '#333' }}>Full Name*</label>
-                <input type="text" placeholder="John Smith" value={formData.fullName} onChange={(e) => setFormData({...formData, fullName: e.target.value})} style={{ width: '100%', padding: '16px', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.05)', background: '#fff', fontSize: '16px', outline: 'none' }} required />
-              </div>
-              <div style={{ flex: '1 1 250px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ fontSize: '14px', fontWeight: 600, color: '#333' }}>Phone number*</label>
-                <input type="tel" placeholder="(310) 555-1234" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} style={{ width: '100%', padding: '16px', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.05)', background: '#fff', fontSize: '16px', outline: 'none' }} required />
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <label style={{ fontSize: '14px', fontWeight: 600, color: '#333' }}>Email address*</label>
-              <input type="email" placeholder="john.smith@email.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={{ width: '100%', padding: '16px', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.05)', background: '#fff', fontSize: '16px', outline: 'none' }} required />
-            </div>
-
-            <button type="submit" disabled={loading} style={{ background: '#FCA311', color: '#000', fontSize: '18px', fontWeight: 700, padding: '16px 32px', borderRadius: '8px', border: '3px solid #000', boxShadow: '4px 4px 0 #000', marginTop: '10px', alignSelf: 'flex-start', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, transition: 'all 0.2s' }}>
-              {loading ? 'Saving...' : 'Reserve My Spot'}
+        <div className="reservation-card" style={{ position: 'relative', zIndex: 10, background: '#F5F0E6', padding: '60px 40px', borderRadius: '16px', width: '100%', maxWidth: '550px', borderLeft: '8px solid #000', borderBottom: '8px solid #000', boxShadow: '0 20px 40px rgba(0,0,0,0.3)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#3b2207', marginBottom: '16px' }}>Are you a Restaurant Owner?</h3>
+          <p style={{ color: '#555', fontSize: '16px', fontWeight: 600, lineHeight: 1.5, marginBottom: '32px' }}>
+            Join the Fuudr Partner Program. Upload food reels, manage your menu, track operating hours, and start receiving direct orders from hungry local customers.
+          </p>
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', width: '100%', justifyContent: 'center' }}>
+            <button 
+              onClick={() => window.location.href = '/partner/signup'}
+              style={{ flex: '1 1 200px', background: '#FCA311', color: '#000', fontSize: '18px', fontWeight: 800, padding: '16px 24px', borderRadius: '8px', border: '3px solid #000', boxShadow: '4px 4px 0 #000', cursor: 'pointer', transition: 'all 0.2s', fontFamily: 'var(--sans)' }}
+            >
+              Register Restaurant
             </button>
-
-            {message && (
-              <div style={{ marginTop: '10px', padding: '12px', borderRadius: '8px', background: message.type === 'success' ? '#D4EDDA' : '#F8D7DA', color: message.type === 'success' ? '#155724' : '#721C24', fontSize: '14px', fontWeight: 500 }}>
-                {message.text}
-              </div>
-            )}
-          </form>
+            <button 
+              onClick={() => window.location.href = '/partner'}
+              style={{ flex: '1 1 200px', background: '#fff', color: '#000', fontSize: '18px', fontWeight: 800, padding: '16px 24px', borderRadius: '8px', border: '3px solid #000', boxShadow: '4px 4px 0 #000', cursor: 'pointer', transition: 'all 0.2s', fontFamily: 'var(--sans)' }}
+            >
+              Partner Sign In
+            </button>
+          </div>
         </div>
       </section>
 
@@ -605,7 +567,7 @@ export function Home() {
 
           <div className="footer-actions" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '60px', flexWrap: 'wrap' }}>
             <button className="brutal-btn" onClick={() => window.open('https://whatsapp.com/channel/0029VbCTk553QxS6ZxDutH1N', '_blank')} style={{ background: '#FCA311', color: '#000', padding: '16px 32px', fontSize: '20px', borderRadius: '12px' }}>Join Community</button>
-            <button className="brutal-btn" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} style={{ background: '#fff', color: '#000', padding: '16px 32px', fontSize: '20px', borderRadius: '12px' }}>Join Waitlist</button>
+            <button className="brutal-btn" onClick={() => document.getElementById('partner-cta')?.scrollIntoView({ behavior: 'smooth' })} style={{ background: '#fff', color: '#000', padding: '16px 32px', fontSize: '20px', borderRadius: '12px' }}>Register Restaurant</button>
           </div>
 
           <div className="footer-socials" style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '80px', flexWrap: 'wrap' }}>
