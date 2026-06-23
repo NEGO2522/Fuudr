@@ -17,7 +17,7 @@ function createSessionToken() {
 /**
  * AddressAutocomplete
  * Restaurant/place address search box backed by Google Places API (New).
- * Calls onSelect({ address, latitude, longitude, placeId }) when the user
+ * Calls onSelect({ address, latitude, longitude, googleMapLink, rating, userRatingCount, placeId }) when the user
  * picks a suggestion. Does NOT allow free-typed address to be submitted —
  * forces a selection from Google so lat/lng is always captured.
  */
@@ -105,7 +105,7 @@ const AddressAutocomplete = ({
 
     try {
       const res = await fetch(
-        `https://places.googleapis.com/v1/places/${placeId}?fields=location,formattedAddress&sessionToken=${sessionTokenRef.current}`,
+        `https://places.googleapis.com/v1/places/${placeId}?fields=location,formattedAddress,googleMapsUri,rating,userRatingCount&sessionToken=${sessionTokenRef.current}`,
         {
           headers: {
             'X-Goog-Api-Key': GOOGLE_MAPS_API_KEY,
@@ -116,10 +116,16 @@ const AddressAutocomplete = ({
 
       if (data.location) {
         setIsConfirmed(true);
+        const lat = data.location.latitude;
+        const lng = data.location.longitude;
+        const fallbackLink = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}&query_place_id=${placeId}`;
         onSelect({
           address: data.formattedAddress || description,
-          latitude: data.location.latitude,
-          longitude: data.location.longitude,
+          latitude: lat,
+          longitude: lng,
+          googleMapLink: data.googleMapsUri || fallbackLink,
+          rating: data.rating || 0,
+          userRatingCount: data.userRatingCount || 0,
           placeId,
         });
       }

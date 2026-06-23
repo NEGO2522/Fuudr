@@ -54,14 +54,14 @@ const Overview = ({ user }) => {
       bg: 'bg-orange-50' 
     },
     { 
-      title: 'Profile Rating', 
+      title: 'Google Rating', 
       value: stats.avgRating ? `${stats.avgRating} ★` : 'New', 
       icon: Star, 
       color: 'text-yellow-600', 
       bg: 'bg-yellow-50' 
     },
     { 
-      title: 'Total Reviews', 
+      title: 'Google Reviews', 
       value: stats.totalReviews, 
       icon: Star, 
       color: 'text-purple-600', 
@@ -70,7 +70,7 @@ const Overview = ({ user }) => {
   ];
 
   return (
-    <div className="animate-fadeIn max-w-6xl mx-auto pb-12">
+    <div className="animate-fadeIn max-w-6xl mx-auto pb-12 h-full overflow-y-auto overscroll-contain">
       
       {/* Header */}
       <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-slate-200 pb-6">
