@@ -10,14 +10,14 @@ import './Home.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80", alt: "Pizza", likes: "1.2k", comments: "84" },
-  { src: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80", alt: "Burger", likes: "8.4k", comments: "120" },
-  { src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80", alt: "Pasta", likes: "2.1k", comments: "310" },
-  { src: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80", alt: "Momos and Dumplings", likes: "3.4k", comments: "67" },
-  { src: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80", alt: "Manchurian Asian Bowl", likes: "9.2k", comments: "430" },
-  { src: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=600&q=80", alt: "Italian Spread", likes: "1.8k", comments: "92" },
-  { src: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80", alt: "Chinese Noodles", likes: "4.2k", comments: "150" },
-  { src: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80", alt: "Mexican Tacos", likes: "2.7k", comments: "115" }
+  { src: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=60", alt: "Pizza", likes: "1.2k", comments: "84" },
+  { src: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=60", alt: "Burger", likes: "8.4k", comments: "120" },
+  { src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=60", alt: "Pasta", likes: "2.1k", comments: "310" },
+  { src: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=400&q=60", alt: "Momos and Dumplings", likes: "3.4k", comments: "67" },
+  { src: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=400&q=60", alt: "Manchurian Asian Bowl", likes: "9.2k", comments: "430" },
+  { src: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=400&q=60", alt: "Italian Spread", likes: "1.8k", comments: "92" },
+  { src: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=400&q=60", alt: "Chinese Noodles", likes: "4.2k", comments: "150" },
+  { src: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=60", alt: "Mexican Tacos", likes: "2.7k", comments: "115" }
 ];
 
 export function Home() {
@@ -26,7 +26,7 @@ export function Home() {
   useEffect(() => {
     // Lenis Smooth Scroll setup
     const lenis = new Lenis({
-      lerp: 0.05,
+      lerp: 0.08,
       wheelMultiplier: 1,
       smoothWheel: true,
       smoothTouch: false
@@ -160,7 +160,8 @@ export function Home() {
             trigger: '.photo-gallery',
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1
+            scrub: 2,
+            invalidateOnRefresh: true
           }
         }
       );
@@ -285,7 +286,7 @@ export function Home() {
         <div className="photo-gallery">
           {[...galleryImages, ...galleryImages].map((img, i) => (
             <div key={i} className="polaroid" style={{ padding: 0, height: '340px', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}>
-              <img src={img.src} alt={img.alt} style={{ width: '100%', height: '100%', objectFit: 'cover', border: 'none' }} />
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', border: 'none' }} />
               
               <div style={{ position: 'absolute', bottom: '85px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', zIndex: 5 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
