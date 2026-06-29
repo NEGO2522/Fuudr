@@ -95,7 +95,11 @@ export default function ManageOrder() {
       .select(`
         *,
         partners!orders_partner_id_fkey (
-          restaurant_name
+          restaurant_name,
+          address,
+          latitude,
+          longitude,
+          google_map_link
         )
       `)
       .eq('id', id)
@@ -353,6 +357,23 @@ export default function ManageOrder() {
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Restaurant Source</p>
                   <p className="text-sm font-black text-slate-900 mt-0.5">{order.restaurant_name}</p>
                   <p className="text-xs text-slate-500 mt-0.5 line-clamp-2 leading-relaxed">{order.partners?.address || 'Restaurant Address'}</p>
+                  <div className="mt-2.5">
+                    <a
+                      href={
+                        order.partners?.google_map_link
+                          ? order.partners.google_map_link
+                          : (order.partners?.latitude && order.partners?.longitude)
+                          ? `https://www.google.com/maps/search/?api=1&query=${order.partners.latitude},${order.partners.longitude}`
+                          : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([order.restaurant_name, order.partners?.address].filter(Boolean).join(', '))}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-50 hover:bg-orange-100 text-orange-600 hover:text-orange-700 text-xs font-bold transition-all border border-orange-100 shadow-sm"
+                    >
+                      <MapPin size={12} />
+                      View Location
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -366,6 +387,19 @@ export default function ManageOrder() {
                   <span className="text-xs font-black text-slate-700">{distanceInfo.distance || 'Calculating...'}</span>
                   <span className="text-[10px] text-slate-400 font-bold">({distanceInfo.duration || '—'})</span>
                 </div>
+                <a
+                  href={
+                    (order.delivery_latitude && order.delivery_longitude && order.partners?.latitude && order.partners?.longitude)
+                      ? `https://www.google.com/maps/dir/?api=1&origin=${order.partners.latitude},${order.partners.longitude}&destination=${order.delivery_latitude},${order.delivery_longitude}`
+                      : `https://www.google.com/maps/dir/?api=1&origin=${order.partners?.latitude || ''},${order.partners?.longitude || ''}&destination=${encodeURIComponent(order.delivery_address)}`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-800 text-xs font-bold transition-all border border-slate-200/80 shadow-sm"
+                >
+                  <Navigation size={11} className="rotate-45" />
+                  Get Directions
+                </a>
               </div>
 
               {/* Customer Node */}
