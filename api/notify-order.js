@@ -27,10 +27,21 @@ export default async function handler(req, res) {
 
   try {
     const payload = req.body;
+    const type = payload.type; // 'INSERT' or 'UPDATE'
     const order = payload.record || payload; 
+    const oldOrder = payload.old_record;
     
     if (!order || !order.id) {
       return res.status(400).json({ error: 'Invalid payload' });
+    }
+
+    // Only proceed if it is a new order, or a status update to 'cancelled'
+    const isNewOrder = (type === 'INSERT' || !type); // fallback to insert if type is missing
+    const isCancelledUpdate = (type === 'UPDATE' && order.status === 'cancelled' && (!oldOrder || oldOrder.status !== 'cancelled'));
+
+    if (!isNewOrder && !isCancelledUpdate) {
+      // Ignore other updates (like preparing, on_the_way, delivered)
+      return res.status(200).json({ success: true, message: 'Ignored non-cancellation update' });
     }
 
     const appPassword = process.env.GMAIL_APP_PASSWORD;
@@ -52,6 +63,14 @@ export default async function handler(req, res) {
       ? (parsedBill.total ?? parsedBill.grandTotal ?? order.total_price ?? 0)
       : (order.total_price ?? 0);
 
+    const subject = isCancelledUpdate 
+      ? `🚨 Order CANCELLED: #${order.id}` 
+      : `🔔 New Order Received: #${order.id}`;
+
+    const emailHeaderTitle = isCancelledUpdate
+      ? `<h2 style="color: #d32f2f; margin-top: 0;"><b>Order Cancelled</b></h2>`
+      : `<h2 style="color: #FF4500; margin-top: 0;">New Order Placed!</h2>`;
+
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
@@ -65,13 +84,18 @@ export default async function handler(req, res) {
     const info = await transporter.sendMail({
       from: `"Fuudr Orders" <${GMAIL_USER}>`,
       to: GMAIL_USER,
-      subject: `🔔 New Order Received: #${order.id}`,
+      subject: subject,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fff; color: #333;">
-          <h2 style="color: #FF4500; margin-top: 0;">New Order Placed!</h2>
-          <p style="color: #666; font-size: 15px;">A new order has been successfully placed in the database.</p>
+          ${emailHeaderTitle}
+          <p style="color: #666; font-size: 15px;">
+            ${isCancelledUpdate 
+              ? `The following order has been <strong>cancelled</strong> by the user/system.` 
+              : `A new order has been successfully placed in the database.`}
+          </p>
           <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
           <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 6px 0; color: #888;">Order Status:</td><td style="padding: 6px 0; font-weight: bold; text-align: right; color: ${isCancelledUpdate ? '#d32f2f' : '#FF4500'};">${(order.status || 'placed').toUpperCase()}</td></tr>
             <tr><td style="padding: 6px 0; color: #888;">Order ID:</td><td style="padding: 6px 0; font-weight: bold; text-align: right;">${order.id}</td></tr>
             <tr><td style="padding: 6px 0; color: #888;">Customer:</td><td style="padding: 6px 0; font-weight: bold; text-align: right;">${order.delivery_name || 'N/A'}</td></tr>
             <tr><td style="padding: 6px 0; color: #888;">Address:</td><td style="padding: 6px 0; font-weight: bold; text-align: right;">${order.delivery_address || 'N/A'}</td></tr>
